@@ -15,11 +15,12 @@ test("rahulshettyAcademy", async ({ page }) => {
   await page.pause();
 });
 
-test.only("dropdownAndRadiobuttons", async ({ page }) => {
+test("dropdownAndRadiobuttons", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   await page.locator("select.form-control").selectOption("teach");
   await page.locator("span.checkmark").nth(1).click();
   await page.locator("#okayBtn").click();
+  console.log("###################################");
 
   await page.pause();
 });
