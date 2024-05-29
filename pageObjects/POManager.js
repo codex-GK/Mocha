@@ -4,12 +4,13 @@ const { MycartPage } = require("./MycartPage");
 const { PaymentOrders } = require("./PaymentOrders");
 
 class POManager {
+  //POManager consolidates all the objects of the classes.
   constructor(page) {
     this.page = page;
     this.loginPage = new LoginPage(this.page);
     this.dashboardpage = new DashboardPage(this.page);
     this.mycartpage = new MycartPage(this.page);
-    this.paymentorders = new PaymentOrders(this.page); 
+    this.paymentorders = new PaymentOrders(this.page);
   }
 
   getLoginPage() {
