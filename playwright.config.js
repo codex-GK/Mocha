@@ -18,7 +18,7 @@ const config = {
     browserName: "chromium",
     //browserName : 'webkit',
     //headless : true //this will not show the browser opening
-    headless: false,
+    headless: true,
     //browserName : 'chrome'
     screenshot: "on",
     //trace: "on",
