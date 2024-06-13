@@ -21,6 +21,7 @@ test("dropdownAndRadiobuttons", async ({ page }) => {
   await page.locator("span.checkmark").nth(1).click();
   await page.locator("#okayBtn").click();
   console.log("###################################");
+  console.log("###################################");
 
   await page.pause();
 });
