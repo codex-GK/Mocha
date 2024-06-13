@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 //const { apiUtils } = require("../Utils/apiUtils");
-test("shoppingCart", async ({ page }) => {
+test("@UI shoppingCart", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/");
   const email = page.locator("#userEmail");
   const password = page.locator("#userPassword");

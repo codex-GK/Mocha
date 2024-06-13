@@ -7,7 +7,7 @@ const dataset = JSON.parse(
 );
 for (const data of dataset) {
   //${} this will evaluate as expression if not is is considered as a regular string
-  test(`client app login for ${data.item}`, async ({ page }) => {
+  test(`@Functional client app login for ${data.item}`, async ({ page }) => {
     const pomanager = new POManager(page);
 
     const loginPage = pomanager.getLoginPage();

@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "uiTest": "npx playwright test --grep @UI",
+    "smoke": "npx playwright test --grep @Smoke",
+    "functional": "npx playwright test --grep @Functional",
+    "build": "echo 'Build script not needed for Playwright tests'",
+    "test": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

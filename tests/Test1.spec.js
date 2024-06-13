@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Page rsaTester", async ({ page }) => {
+test("@UI Page rsaTester", async ({ page }) => {
   //await page.goto("https://rahulshettyacademy.com/client");
   await page.goto("https://rahulshettyacademy.com/client");
   //console.log(await page.title());

@@ -21,9 +21,9 @@ const config = {
     headless: false,
     //browserName : 'chrome'
     screenshot: "on",
-    trace: "on",
+    //trace: "on",
 
-    //trace: "retain-on-failure",
+    trace: "retain-on-failure",
   },
 };
 module.exports = config;

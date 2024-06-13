@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("rahulshettyAcademy", async ({ page }) => {
+test("@web rahulshettyAcademy", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/");
 
   const email = page.locator("#userEmail");
