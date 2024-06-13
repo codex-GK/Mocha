@@ -20,8 +20,54 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: CopyFiles@2
-  inputs:
-    Contents: '**/package.json'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    - script: |
+      npm ci
+    displayName: "Install dependencies"
+
+  - script: |
+      npx playwright install --with-deps
+    displayName: "Install Playwright"
+
+  - script: |
+      npm test
+    displayName: "npm test"
+    env:
+      CI: "true"
+
+  - script: ls -ls
+    displayName: "list root directory contents for debugging"
+
+  - script: ls -la playwright-report
+    displayName: "List playwright-report directory contents for debugging"
+
+  - task: PublishTestResults@2
+    displayName: "Publish test results"
+    inputs:
+      searchFolder: "playwright-report" # Update to point to your HTML report folder
+      testResultsFormat: "HTML"
+      mergeTestResults: true # Set to true if you have multiple test result files to merge
+      failTaskOnFailedTests: true
+      testRunTitle: "My End-To-End Tests"
+    condition: succeededOrFailed()
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: playwright-report
+      artifact: playwright-report
+      publishLocation: "pipeline"
+    condition: succeededOrFailed()
+
+  - task: CopyFiles@2
+    inputs:
+      Contents: "**/package.json"
+      TargetFolder: "$(build.artifactstagingdirectory)"
+    condition: succeededOrFailed()
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "mochaartifactfile"
+      publishLocation: "Container"
+    condition: succeededOrFailed()
+
 
