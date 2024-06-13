@@ -22,6 +22,7 @@ test("dropdownAndRadiobuttons", async ({ page }) => {
   await page.locator("#okayBtn").click();
   console.log("###################################");
   console.log("###################################");
+  console.log("###################################");
 
   await page.pause();
 });
