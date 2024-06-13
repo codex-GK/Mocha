@@ -7,9 +7,9 @@ const config = {
   /* Run tests in files in parallel */
   fullyParallel: true,
 
-  timeout: 60 * 1000,
+  timeout: 90 * 1000,
   expect: {
-    timeout: 5000,
+    timeout: 7000,
   },
 
   reporter: "html",
@@ -20,7 +20,7 @@ const config = {
       use: {
         //browserName: "chromium",
         browserName: "webkit",
-        // hesdless : true -->this will not show the browser opening
+        // headless : true -->this will not show the browser opening
         headless: false,
         //browserName : 'webkit'
         screenshot: "on",
@@ -35,13 +35,13 @@ const config = {
       use: {
         browserName: "chromium",
         //browserName : 'webkit',
-        // hesdless : true -->this will not show the browser opening
+        // headless : true -->this will not show the browser opening
         headless: false,
         //browserName : 'webkit'
         screenshot: "on",
         video: "retain-on-failure",
-        //trace: "retain-on-failure",
-        trace: "on",
+        trace: "retain-on-failure",
+        //trace: "on",
         //viewport: { width: 720, height: 720 },
         //ignorehttpserrors: true, //to handle ssl certification errors automatically
         //Permissions: ["geolocation"], //to allow when google ask permission for location

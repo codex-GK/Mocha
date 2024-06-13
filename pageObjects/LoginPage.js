@@ -10,7 +10,7 @@ class LoginPage {
     await this.page.goto("https://rahulshettyacademy.com/client");
   }
 
-  async validLogin(email, password)   {
+  async validLogin(email, password) {
     await this.email.click();
     await this.email.fill(email);
 

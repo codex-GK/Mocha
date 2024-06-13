@@ -22,7 +22,7 @@ test("shoppingCart", async ({ page }) => {
   }
   await page.locator("button[routerlink='/dashboard/cart']").click();
   //await page.locator("[routerlink='/dashboard/cart']").click();
-  await page.locator("text=Checkoutt").click();
+  await page.locator("text=Checkout").click();
   const country = await page
     .locator("[placeholder='Select Country']")
     .type("ind", { delay: 1000 });

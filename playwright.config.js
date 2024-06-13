@@ -17,8 +17,8 @@ const config = {
   use: {
     browserName: "chromium",
     //browserName : 'webkit',
-    // hesdless : true -->this will not show the browser opening
-    headless: true,
+    //headless : true //this will not show the browser opening
+    headless: false,
     //browserName : 'chrome'
     screenshot: "on",
     trace: "on",

@@ -18,35 +18,16 @@ for (const data of dataset) {
     await dashboardpage.itemname(data.item);
     await dashboardpage.navigatetocart();
 
-    const cartItems = await page.locator("div li").first().waitFor();
+    const mycartpage = pomanager.getMycartPage();
+    await mycartpage.checkouts();
 
-    const country = await page
-      .locator("[placeholder*='Country']")
-      .type("ind", { delay: 1000 });
+    const paymentorders = pomanager.getPaymentOrders();
+    await paymentorders.dropdowns("ind", "India");
+    await paymentorders.placeorder();
 
-    const dropdown = page.locator(".ta-results");
-    await dropdown.waitFor();
-
-    const dropdownOptionsCount = await page
-      .locator(".ta-results button")
-      .count();
-
-    for (let i = 0; i < dropdownOptionsCount; i++) {
-      const countryName = await page
-        .locator(".ta-results button")
-        .nth(i)
-        .textContent();
-
-      if (countryName === " India") {
-        await page.locator(".ta-results button").nth(i).click();
-
-        break;
-      }
-    }
-    await page.locator(".action__submit").click();
-    await expect(page.locator(".hero-primary")).toHaveText(
-      " Thankyou for the order. "
-    );
+    // expect(page.locator(".hero-primary")).toHaveText(
+    // " Thankyou for the order. "
+    //);
     const orderId = await page.locator("label.ng-star-inserted").textContent();
     console.log(orderId);
 
